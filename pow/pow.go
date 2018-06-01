@@ -19,6 +19,7 @@ import (
 
 	"github.com/elastos/Elastos.ELA.Utility/common"
 	"github.com/elastos/Elastos.ELA.Utility/crypto"
+	. "github.com/elastos/Elastos.ELA/errors"
 )
 
 var TaskCh chan bool
@@ -195,6 +196,11 @@ func (pow *PowService) GenerateBlock(addr string) (*Block, error) {
 			continue
 		}
 
+		if errCode := CheckTransactionContext(tx); errCode != Success{
+			log.Info("get invalid transaction when generating block", tx.Hash())
+			node.LocalNode.RemoveTransaction(tx)
+			continue
+		}
 		fee := GetTxFee(tx, DefaultLedger.Blockchain.AssetID)
 		if fee != tx.Fee {
 			continue
@@ -243,7 +249,13 @@ func (pow *PowService) DiscreteMining(n uint32) ([]*common.Uint256, error) {
 	defer ticker.Stop()
 
 	for {
-		log.Trace("<================Manual Mining==============>\n")
+		log.Trace("<================Discrete Mining==============>\n")
+		log.Trace("generage block, need sync")
+
+		if node.LocalNode.NeedSync() {
+			log.Trace("generate block, need sync")
+			time.Sleep(time.Second * 2)
+		}
 
 		msgBlock, err := pow.GenerateBlock(pow.PayToAddr)
 		if err != nil {
@@ -344,7 +356,7 @@ func (pow *PowService) RollbackTransaction(v interface{}) {
 		for _, tx := range block.Transactions[1:] {
 			err := node.LocalNode.MaybeAcceptTransaction(tx)
 			if err == nil {
-				node.LocalNode.RemoveTransaction(tx)
+				node.LocalNode.RemoveTransactionsWithRollbackedTransactionOutput(tx)
 			} else {
 				log.Error(err)
 			}
@@ -394,6 +406,10 @@ out:
 		}
 		log.Trace("<================Packing Block==============>")
 		//time.Sleep(15 * time.Second)
+		if node.LocalNode.NeedSync() {
+			log.Trace("generate block, need sync")
+			time.Sleep(time.Second * 2)
+		}
 
 		msgBlock, err := pow.GenerateBlock(pow.PayToAddr)
 		if err != nil {

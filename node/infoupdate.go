@@ -28,9 +28,8 @@ func (node *node) hasSyncPeer() (bool, Noder) {
 }
 
 func (node *node) SyncBlocks() {
-	log.Debug()
-	needSync := node.needSync()
-	log.Debugf("NeedSync: %v", needSync)
+	needSync := node.NeedSync()
+	log.Info("NeedSync: %v", needSync)
 	if needSync == false {
 		LocalNode.SetSyncHeaders(false)
 		syncNode, err := node.FindSyncNode()

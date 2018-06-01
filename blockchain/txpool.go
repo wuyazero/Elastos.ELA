@@ -111,7 +111,7 @@ func (pool *TxPool) verifyTransactionWithTxnPool(txn *Transaction) bool {
 }
 
 //remove from associated map
-func (pool *TxPool) removeTransaction(txn *Transaction) {
+func (pool *TxPool) RemoveTransaction(txn *Transaction) {
 	//1.remove from txnList
 	pool.delFromTxList(txn.Hash())
 	//2.remove from UTXO list map
@@ -268,7 +268,7 @@ func (pool *TxPool) MaybeAcceptTransaction(txn *Transaction) error {
 	return nil
 }
 
-func (pool *TxPool) RemoveTransaction(txn *Transaction) {
+func (pool *TxPool) RemoveTransactionsWithRollbackedTransactionOutput(txn *Transaction) {
 	txHash := txn.Hash()
 	for i := range txn.Outputs {
 		input := Input{
@@ -280,7 +280,7 @@ func (pool *TxPool) RemoveTransaction(txn *Transaction) {
 
 		txn := pool.getInputUTXOList(&input)
 		if txn != nil {
-			pool.removeTransaction(txn)
+			pool.RemoveTransaction(txn)
 		}
 	}
 }

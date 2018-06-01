@@ -78,7 +78,7 @@ type Noder interface {
 	WaitForSyncFinish()
 	CleanSubmittedTransactions(block *Block) error
 	MaybeAcceptTransaction(txn *Transaction) error
-	RemoveTransaction(txn *Transaction)
+	RemoveTransactionsWithRollbackedTransactionOutput(txn *Transaction)
 
 	GetNeighborNoder() []Noder
 	GetNbrNodeCnt() uint32
