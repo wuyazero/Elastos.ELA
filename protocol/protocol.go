@@ -56,7 +56,6 @@ type Noder interface {
 	GetTxnPool(bool) map[Uint256]*Transaction
 	AppendToTxnPool(*Transaction) ErrCode
 	ExistedID(id Uint256) bool
-	ReqNeighborList()
 	DumpInfo()
 	UpdateInfo(t time.Time, version uint32, services uint64,
 		port uint16, nonce uint64, relay uint8, height uint64)
@@ -69,13 +68,13 @@ type Noder interface {
 	GetTime() int64
 	NodeEstablished(uid uint64) bool
 	GetEvent(eventName string) *events.Event
-	GetNeighborAddrs() ([]p2p.NetAddress, uint64)
+	GetNeighborAddrs() []p2p.NetAddress
 	GetTransaction(hash Uint256) *Transaction
 	IncRxTxnCnt()
 	GetTxnCnt() uint64
 	GetRxTxnCnt() uint64
 
-	GetNeighborHeights() ([]uint64, uint64)
+	GetNeighborHeights() []uint64
 	WaitForSyncFinish()
 	CleanSubmittedTransactions(block *Block) error
 	MaybeAcceptTransaction(txn *Transaction) error

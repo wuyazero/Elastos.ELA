@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"sync"
 
+	"github.com/elastos/Elastos.ELA/log"
 	"github.com/elastos/Elastos.ELA/protocol"
 
 	"github.com/elastos/Elastos.ELA.Utility/p2p"
@@ -82,11 +83,10 @@ func (nm *nbrNodes) NodeEstablished(id uint64) bool {
 	return true
 }
 
-func (node *node) GetNeighborAddrs() ([]p2p.NetAddress, uint64) {
+func (node *node) GetNeighborAddrs() []p2p.NetAddress {
 	node.nbrNodes.RLock()
 	defer node.nbrNodes.RUnlock()
 
-	var i uint64
 	var addrs []p2p.NetAddress
 	for _, n := range node.nbrNodes.List {
 		if n.State() != p2p.ESTABLISH {
@@ -99,27 +99,24 @@ func (node *node) GetNeighborAddrs() ([]p2p.NetAddress, uint64) {
 		addr.Port = n.Port()
 		addr.ID = n.ID()
 		addrs = append(addrs, addr)
-
-		i++
 	}
 
-	return addrs, i
+	return addrs
 }
 
-func (node *node) GetNeighborHeights() ([]uint64, uint64) {
+func (node *node) GetNeighborHeights() []uint64 {
+	log.Debug()
 	node.nbrNodes.RLock()
 	defer node.nbrNodes.RUnlock()
 
-	var i uint64
 	heights := []uint64{}
 	for _, n := range node.nbrNodes.List {
 		if n.State() == p2p.ESTABLISH {
 			height := n.Height()
 			heights = append(heights, height)
-			i++
 		}
 	}
-	return heights, i
+	return heights
 }
 
 func (node *node) GetNeighborNoder() []protocol.Noder {

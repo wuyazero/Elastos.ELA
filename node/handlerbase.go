@@ -161,7 +161,7 @@ func (h *HandlerBase) onVerAck(verAck *msg.VerAck) error {
 	}
 
 	if LocalNode.NeedMoreAddresses() {
-		node.ReqNeighborList()
+		node.Send(new(msg.GetAddr))
 	}
 	addr := node.Addr()
 	port := node.Port()
@@ -228,6 +228,7 @@ func NewVersion(node protocol.Noder) *msg.Version {
 }
 
 func SendGetBlocks(node protocol.Noder, locator []*common.Uint256, hashStop common.Uint256) {
+	log.Debug()
 	if LocalNode.GetStartHash() == *locator[0] && LocalNode.GetStopHash() == hashStop {
 		return
 	}
