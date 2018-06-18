@@ -220,9 +220,6 @@ func (c *ChainStore) IsSidechainTxHashDuplicate(sidechainTxHash Uint256) bool {
 }
 
 func (c *ChainStore) IsDoubleSpend(txn *Transaction) bool {
-	if len(txn.Inputs) == 0 {
-		return false
-	}
 
 	unspentPrefix := []byte{byte(IX_Unspent)}
 	for i := 0; i < len(txn.Inputs); i++ {

@@ -52,11 +52,6 @@ func CheckTransactionSanity(version uint32, txn *Transaction) ErrCode {
 		return ErrSidechainTxDuplicate
 	}
 
-	// check iterms above for Coinbase transaction
-	if txn.IsCoinBaseTx() {
-		return Success
-	}
-
 	return Success
 }
 
@@ -234,12 +229,6 @@ func CheckOutputProgramHash(programHash Uint168) bool {
 }
 
 func CheckTransactionUTXOLock(txn *Transaction) error {
-	if txn.IsCoinBaseTx() {
-		return nil
-	}
-	if len(txn.Inputs) <= 0 {
-		return errors.New("Transaction has no inputs")
-	}
 	references, err := DefaultLedger.Store.GetTxReference(txn)
 	if err != nil {
 		return fmt.Errorf("GetReference failed: %s", err)
@@ -301,14 +290,8 @@ func CheckTransactionBalance(tx *Transaction) error {
 		}
 	}
 
-	results, err := GetTxFeeMap(tx)
-	if err != nil {
-		return err
-	}
-	for _, v := range results {
-		if v < Fixed64(config.Parameters.PowConfiguration.MinTxFee) {
-			return fmt.Errorf("Transaction fee not enough")
-		}
+	if GetTxFee(tx) < Fixed64(config.Parameters.PowConfiguration.MinTxFee) {
+		return fmt.Errorf("Transaction fee not enough")
 	}
 	return nil
 }

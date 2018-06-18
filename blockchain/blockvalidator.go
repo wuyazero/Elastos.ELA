@@ -10,6 +10,7 @@ import (
 	"github.com/elastos/Elastos.ELA/config"
 	. "github.com/elastos/Elastos.ELA/core"
 	. "github.com/elastos/Elastos.ELA/errors"
+	"github.com/elastos/Elastos.ELA/log"
 
 	. "github.com/elastos/Elastos.ELA.Utility/common"
 	"github.com/elastos/Elastos.ELA.Utility/crypto"
@@ -80,7 +81,7 @@ func PowCheckBlockSanity(block *Block, powLimit *big.Int, timeSource MedianTimeS
 		}
 
 		// Calculate transaction fee
-		totalTxFee += GetTxFee(tx, DefaultLedger.Blockchain.AssetID)
+		totalTxFee += GetTxFee(tx)
 	}
 
 	// Reward in coinbase must match inflation 4% per year
@@ -230,4 +231,23 @@ func IsFinalizedTransaction(msgTx *Transaction, blockHeight uint32) bool {
 		}
 	}
 	return true
+}
+
+func GetTxFee(tx *Transaction) Fixed64 {
+	var outputAmount Fixed64
+	var inputAmount Fixed64
+	for _, output := range tx.Outputs {
+		outputAmount += output.Value
+	}
+
+	reference, err := DefaultLedger.Store.GetTxReference(tx)
+	if err != nil {
+		log.Error("get reference faild when get tx fee", tx.Hash())
+		return 0
+	}
+	for _, input := range tx.Inputs {
+		inputAmount += reference[input].Value
+	}
+
+	return outputAmount - inputAmount
 }

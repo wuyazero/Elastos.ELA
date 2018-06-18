@@ -63,7 +63,6 @@ type Transaction struct {
 	Outputs        []*Output
 	LockTime       uint32
 	Programs       []*Program
-	Fee            Fixed64
 	FeePerKB       Fixed64
 
 	hash *Uint256

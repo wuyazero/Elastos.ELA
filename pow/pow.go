@@ -21,12 +21,9 @@ import (
 	"github.com/elastos/Elastos.ELA.Utility/crypto"
 )
 
-var TaskCh chan bool
-
 const (
 	maxNonce       = ^uint32(0) // 2^32 - 1
 	maxExtraNonce  = ^uint64(0) // 2^64 - 1
-	hpsUpdateSecs  = 10
 	hashUpdateSecs = 15
 )
 
@@ -155,12 +152,8 @@ func (pow *PowService) GenerateBlock(addr string) (*Block, error) {
 			continue
 		}
 
-		fee := GetTxFee(tx, DefaultLedger.Blockchain.AssetID)
-		if fee != tx.Fee {
-			continue
-		}
 		msgBlock.Transactions = append(msgBlock.Transactions, tx)
-		totalTxFee += fee
+		totalTxFee += GetTxFee(tx)
 		txCount++
 	}
 
@@ -301,9 +294,9 @@ func (pow *PowService) Halt() {
 func (pow *PowService) RollbackTransaction(v interface{}) {
 	if block, ok := v.(*Block); ok {
 		for _, tx := range block.Transactions[1:] {
-			err := node.LocalNode.MaybeAcceptTransaction(tx)
-			if err == nil {
-				node.LocalNode.RemoveTransaction(tx)
+			err := node.LocalNode.AppendToTxnPool(tx)
+			if err == 0 {
+				node.LocalNode.RemoveSubsequentTransactions(tx)
 			} else {
 				log.Error(err)
 			}
@@ -315,7 +308,7 @@ func (pow *PowService) BlockPersistCompleted(v interface{}) {
 	log.Debug()
 	if block, ok := v.(*Block); ok {
 		log.Infof("persist block: %x", block.Hash())
-		err := node.LocalNode.CleanSubmittedTransactions(block)
+		err := node.LocalNode.CleanTxPool(block)
 		if err != nil {
 			log.Warn(err)
 		}
