@@ -2,6 +2,7 @@ package auxpow
 
 import (
 	. "Elastos.ELA/common"
+	"Elastos.ELA/common/log"
 	"Elastos.ELA/common/serialization"
 	"crypto/sha256"
 	"encoding/binary"
@@ -159,6 +160,7 @@ func (ap *AuxPow) Deserialize(r io.Reader) error {
 
 func (ap *AuxPow) Check(hashAuxBlock Uint256, chainId int) bool {
 	if CheckMerkleBranch(ap.ParCoinbaseTx.Hash(), ap.ParCoinBaseMerkle, ap.ParMerkleIndex) != ap.ParBlockHeader.MerkleRoot {
+		log.Error("1")
 		return false
 	}
 
@@ -174,30 +176,36 @@ func (ap *AuxPow) Check(hashAuxBlock Uint256, chainId int) bool {
 	rootHashIndex := strings.Index(scriptStr, auxRootHashStr)
 
 	if (headerIndex == -1) || (rootHashIndex == -1) {
+		log.Error("2")
 		return false
 	}
 
 	if strings.Index(scriptStr[headerIndex+2:], pchMergedMiningHeaderStr) != -1 {
+		log.Error("3")
 		return false
 	}
 
 	if headerIndex+len(pchMergedMiningHeaderStr) != rootHashIndex {
+		log.Error("4")
 		return false
 	}
 
 	rootHashIndex += len(auxRootHashStr)
 	if len(scriptStr)-rootHashIndex < 8 {
+		log.Error("5")
 		return false
 	}
 
 	size := binary.LittleEndian.Uint32(script[rootHashIndex/2 : rootHashIndex/2+4])
 	merkleHeight := len(ap.AuxMerkleBranch)
 	if size != uint32(1<<uint32(merkleHeight)) {
+		log.Error("6")
 		return false
 	}
 
 	nonce := binary.LittleEndian.Uint32(script[rootHashIndex/2+4 : rootHashIndex/2+8])
 	if ap.AuxMerkleIndex != GetExpectedIndex(nonce, chainId, merkleHeight) {
+		log.Error("7")
 		return false
 	}
 
