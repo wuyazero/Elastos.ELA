@@ -4,9 +4,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/elastos/Elastos.ELA/config"
+	"github.com/wuyazero/Elastos.ELA/config"
 
-	"github.com/elastos/Elastos.ELA.Utility/common"
+	"github.com/wuyazero/Elastos.ELA.Utility/common"
 	"github.com/stretchr/testify/assert"
 )
 

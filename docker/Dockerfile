@@ -16,7 +16,7 @@ RUN export GOROOT=/usr/lib/go-1.9  GOPATH=$HOME/dev && export GOBIN=$GOPATH/bin 
 
 WORKDIR /root/dev/src/github.com/elastos
 # Clone source code
-RUN git clone https://github.com/elastos/Elastos.ELA.git
+RUN git clone https://github.com/wuyazero/Elastos.ELA.git
 
 WORKDIR Elastos.ELA
 

@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"io"
 
-	. "github.com/elastos/Elastos.ELA.Utility/common"
+	. "github.com/wuyazero/Elastos.ELA.Utility/common"
 )
 
 //for different transaction types with different payload format

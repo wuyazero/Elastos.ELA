@@ -1,4 +1,4 @@
-# Elastos.ELA [![Build Status](https://travis-ci.org/elastos/Elastos.ELA.svg?branch=master)](https://travis-ci.org/elastos/Elastos.ELA)
+# Elastos.ELA [![Build Status](https://travis-ci.org/wuyazero/Elastos.ELA.svg?branch=master)](https://travis-ci.org/wuyazero/Elastos.ELA)
 
 ## Summary
 
@@ -70,17 +70,17 @@ If you cannot see the version number, there must be something wrong when install
 ### Clone source code to $GOPATH/src/github.com/elastos folder
 Make sure you are in the folder of $GOPATH/src/github.com/elastos
 ```shell
-$ git clone https://github.com/elastos/Elastos.ELA.git
+$ git clone https://github.com/wuyazero/Elastos.ELA.git
 ```
 
-If clone works successfully, you should see folder structure like $GOPATH/src/github.com/elastos/Elastos.ELA/Makefile
+If clone works successfully, you should see folder structure like $GOPATH/src/github.com/wuyazero/Elastos.ELA/Makefile
 ### Glide install
 
-cd $GOPATH/src/github.com/elastos/Elastos.ELA and Run `glide update && glide install` to install dependencies.
+cd $GOPATH/src/github.com/wuyazero/Elastos.ELA and Run `glide update && glide install` to install dependencies.
 
 ### Make
 
-cd $GOPATH/src/github.com/elastos/Elastos.ELA and Run `make` to build files.
+cd $GOPATH/src/github.com/wuyazero/Elastos.ELA and Run `make` to build files.
 
 If you did not see any error message, congratulations, you have made the ELA full node.
 
@@ -160,17 +160,17 @@ If you cannot see the version number, there must be something wrong when install
 ### Clone source code to $GOPATH/src/github.com/elastos folder
 Make sure you are in the folder of $GOPATH/src/github.com/elastos
 ```shell
-$ git clone https://github.com/elastos/Elastos.ELA.git
+$ git clone https://github.com/wuyazero/Elastos.ELA.git
 ```
 
-If clone works successfully, you should see folder structure like $GOPATH/src/github.com/elastos/Elastos.ELA/Makefile
+If clone works successfully, you should see folder structure like $GOPATH/src/github.com/wuyazero/Elastos.ELA/Makefile
 ### Glide install
 
-cd $GOPATH/src/github.com/elastos/Elastos.ELA and Run `glide update && glide install` to install dependencies.
+cd $GOPATH/src/github.com/wuyazero/Elastos.ELA and Run `glide update && glide install` to install dependencies.
 
 ### Make
 
-cd $GOPATH/src/github.com/elastos/Elastos.ELA and Run `make` to build files.
+cd $GOPATH/src/github.com/wuyazero/Elastos.ELA and Run `make` to build files.
 
 If you did not see any error message, congratulations, you have made the ELA full node.
 

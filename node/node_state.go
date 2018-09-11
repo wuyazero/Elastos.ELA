@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"strings"
 
-	chain "github.com/elastos/Elastos.ELA/blockchain"
-	"github.com/elastos/Elastos.ELA/log"
-	"github.com/elastos/Elastos.ELA/config"
+	chain "github.com/wuyazero/Elastos.ELA/blockchain"
+	"github.com/wuyazero/Elastos.ELA/log"
+	"github.com/wuyazero/Elastos.ELA/config"
 )
 
 const (

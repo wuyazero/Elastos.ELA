@@ -6,10 +6,10 @@ import (
 	"os"
 	"testing"
 
-	"github.com/elastos/Elastos.ELA.Utility/common"
-	"github.com/elastos/Elastos.ELA.Utility/p2p/msg"
-	"github.com/elastos/Elastos.ELA/auxpow"
-	"github.com/elastos/Elastos.ELA/core"
+	"github.com/wuyazero/Elastos.ELA.Utility/common"
+	"github.com/wuyazero/Elastos.ELA.Utility/p2p/msg"
+	"github.com/wuyazero/Elastos.ELA/auxpow"
+	"github.com/wuyazero/Elastos.ELA/core"
 )
 
 func TestMerkleBlock_GetTxMerkleBranch(t *testing.T) {

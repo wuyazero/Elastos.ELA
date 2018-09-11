@@ -150,7 +150,7 @@
 
      * [Elastos.ELA](../README.md)
 
-     * [Elastos.ELA.Client](https://github.com/elastos/Elastos.ELA.Client/blob/master/README.md)
+     * [Elastos.ELA.Client](https://github.com/wuyazero/Elastos.ELA.Client/blob/master/README.md)
 
    **`Dockerfile文件内容如下`**
 

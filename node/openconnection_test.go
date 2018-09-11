@@ -3,12 +3,12 @@ package node
 import (
 	"testing"
 
-	"github.com/elastos/Elastos.ELA/config"
+	"github.com/wuyazero/Elastos.ELA/config"
 
-	"github.com/elastos/Elastos.ELA.Utility/common"
-	"github.com/elastos/Elastos.ELA.Utility/p2p"
-	"github.com/elastos/Elastos.ELA.Utility/p2p/msg"
-	"github.com/elastos/Elastos.ELA.Utility/p2p/msg/v0"
+	"github.com/wuyazero/Elastos.ELA.Utility/common"
+	"github.com/wuyazero/Elastos.ELA.Utility/p2p"
+	"github.com/wuyazero/Elastos.ELA.Utility/p2p/msg"
+	"github.com/wuyazero/Elastos.ELA.Utility/p2p/msg/v0"
 	"github.com/stretchr/testify/assert"
 )
 

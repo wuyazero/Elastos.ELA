@@ -11,11 +11,11 @@ import (
 	"sync"
 	"time"
 
-	. "github.com/elastos/Elastos.ELA/config"
-	"github.com/elastos/Elastos.ELA/log"
-	. "github.com/elastos/Elastos.ELA/protocol"
+	. "github.com/wuyazero/Elastos.ELA/config"
+	"github.com/wuyazero/Elastos.ELA/log"
+	. "github.com/wuyazero/Elastos.ELA/protocol"
 
-	"github.com/elastos/Elastos.ELA.Utility/p2p"
+	"github.com/wuyazero/Elastos.ELA.Utility/p2p"
 )
 
 type link struct {

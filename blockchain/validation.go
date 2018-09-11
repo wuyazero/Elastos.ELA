@@ -7,11 +7,11 @@ import (
 	"fmt"
 	"sort"
 
-	"github.com/elastos/Elastos.ELA/config"
-	. "github.com/elastos/Elastos.ELA/core"
+	"github.com/wuyazero/Elastos.ELA/config"
+	. "github.com/wuyazero/Elastos.ELA/core"
 
-	"github.com/elastos/Elastos.ELA.Utility/common"
-	"github.com/elastos/Elastos.ELA.Utility/crypto"
+	"github.com/wuyazero/Elastos.ELA.Utility/common"
+	"github.com/wuyazero/Elastos.ELA.Utility/crypto"
 )
 
 func RunPrograms(data []byte, hashes []common.Uint168, programs []*Program) error {

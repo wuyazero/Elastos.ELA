@@ -4,9 +4,9 @@ import (
 	"sync"
 	"sort"
 
-	"github.com/elastos/Elastos.ELA/protocol"
+	"github.com/wuyazero/Elastos.ELA/protocol"
 
-	"github.com/elastos/Elastos.ELA.Utility/p2p"
+	"github.com/wuyazero/Elastos.ELA.Utility/p2p"
 )
 
 // The neighbor node list

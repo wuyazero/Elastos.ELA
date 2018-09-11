@@ -5,7 +5,7 @@ import (
 	"encoding/binary"
 	"time"
 
-	. "github.com/elastos/Elastos.ELA.Utility/common"
+	. "github.com/wuyazero/Elastos.ELA.Utility/common"
 )
 
 func getBtcCoinbase(msgBlockHash Uint256) *BtcTx {

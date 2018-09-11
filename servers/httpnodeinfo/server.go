@@ -6,9 +6,9 @@ import (
 	"net/http"
 	"strconv"
 
-	chain "github.com/elastos/Elastos.ELA/blockchain"
-	"github.com/elastos/Elastos.ELA/config"
-	"github.com/elastos/Elastos.ELA/servers"
+	chain "github.com/wuyazero/Elastos.ELA/blockchain"
+	"github.com/wuyazero/Elastos.ELA/config"
+	"github.com/wuyazero/Elastos.ELA/servers"
 )
 
 type Info struct {

@@ -7,17 +7,17 @@ import (
 	"fmt"
 	"time"
 
-	aux "github.com/elastos/Elastos.ELA/auxpow"
-	chain "github.com/elastos/Elastos.ELA/blockchain"
-	"github.com/elastos/Elastos.ELA/config"
-	. "github.com/elastos/Elastos.ELA/core"
-	. "github.com/elastos/Elastos.ELA/errors"
-	"github.com/elastos/Elastos.ELA/log"
-	"github.com/elastos/Elastos.ELA/pow"
-	. "github.com/elastos/Elastos.ELA/protocol"
+	aux "github.com/wuyazero/Elastos.ELA/auxpow"
+	chain "github.com/wuyazero/Elastos.ELA/blockchain"
+	"github.com/wuyazero/Elastos.ELA/config"
+	. "github.com/wuyazero/Elastos.ELA/core"
+	. "github.com/wuyazero/Elastos.ELA/errors"
+	"github.com/wuyazero/Elastos.ELA/log"
+	"github.com/wuyazero/Elastos.ELA/pow"
+	. "github.com/wuyazero/Elastos.ELA/protocol"
 
-	. "github.com/elastos/Elastos.ELA.Utility/common"
-	"github.com/elastos/Elastos.ELA.Utility/p2p"
+	. "github.com/wuyazero/Elastos.ELA.Utility/common"
+	"github.com/wuyazero/Elastos.ELA.Utility/p2p"
 )
 
 const (

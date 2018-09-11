@@ -3,7 +3,7 @@ package bloom
 import (
 	"io"
 
-	"github.com/elastos/Elastos.ELA.Utility/common"
+	"github.com/wuyazero/Elastos.ELA.Utility/common"
 )
 
 type MerkleProof struct {

@@ -11,10 +11,10 @@ import (
 	"strings"
 	"sync"
 
-	. "github.com/elastos/Elastos.ELA/config"
-	. "github.com/elastos/Elastos.ELA/errors"
-	"github.com/elastos/Elastos.ELA/log"
-	"github.com/elastos/Elastos.ELA/servers"
+	. "github.com/wuyazero/Elastos.ELA/config"
+	. "github.com/wuyazero/Elastos.ELA/errors"
+	"github.com/wuyazero/Elastos.ELA/log"
+	"github.com/wuyazero/Elastos.ELA/servers"
 )
 
 const (

@@ -1,4 +1,4 @@
-package: github.com/elastos/Elastos.ELA
+package: github.com/wuyazero/Elastos.ELA
 import:
 - package: golang.org/x/crypto
   repo: https://github.com/golang/crypto.git
@@ -6,7 +6,7 @@ import:
 - package: golang.org/x/sys
   repo: https://github.com/golang/sys.git
   vcs: git
-- package: github.com/elastos/Elastos.ELA.Utility
+- package: github.com/wuyazero/Elastos.ELA.Utility
   version: 65287209cf49bdf76222c87f8b711d68543f2c5e
 - package: github.com/AlexpanXX/fsnotify
   version: 7824671dc7bf1d6925c956976fa0b80ac25dbe32

@@ -21,10 +21,10 @@ import (
 	"fmt"
 	"net"
 
-	"github.com/elastos/Elastos.ELA/config"
-	"github.com/elastos/Elastos.ELA/log"
+	"github.com/wuyazero/Elastos.ELA/config"
+	"github.com/wuyazero/Elastos.ELA/log"
 
-	"github.com/elastos/Elastos.ELA.Utility/p2p"
+	"github.com/wuyazero/Elastos.ELA.Utility/p2p"
 )
 
 // listen the NodeOpenPort to accept connections from external net.

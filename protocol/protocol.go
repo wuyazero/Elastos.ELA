@@ -4,12 +4,12 @@ import (
 	"net"
 	"time"
 
-	"github.com/elastos/Elastos.ELA/bloom"
-	"github.com/elastos/Elastos.ELA/core"
-	"github.com/elastos/Elastos.ELA/errors"
-	"github.com/elastos/Elastos.ELA.Utility/common"
-	"github.com/elastos/Elastos.ELA.Utility/p2p"
-	"github.com/elastos/Elastos.ELA.Utility/p2p/msg"
+	"github.com/wuyazero/Elastos.ELA/bloom"
+	"github.com/wuyazero/Elastos.ELA/core"
+	"github.com/wuyazero/Elastos.ELA/errors"
+	"github.com/wuyazero/Elastos.ELA.Utility/common"
+	"github.com/wuyazero/Elastos.ELA.Utility/p2p"
+	"github.com/wuyazero/Elastos.ELA.Utility/p2p/msg"
 )
 
 const (

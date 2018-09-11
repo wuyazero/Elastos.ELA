@@ -6,7 +6,7 @@ import (
 	"encoding/binary"
 	"io"
 
-	. "github.com/elastos/Elastos.ELA.Utility/common"
+	. "github.com/wuyazero/Elastos.ELA.Utility/common"
 )
 
 type BtcOutPoint struct {

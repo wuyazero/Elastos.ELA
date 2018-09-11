@@ -12,17 +12,17 @@ import (
 	"sync"
 	"time"
 
-	chain "github.com/elastos/Elastos.ELA/blockchain"
-	"github.com/elastos/Elastos.ELA/bloom"
-	. "github.com/elastos/Elastos.ELA/config"
-	. "github.com/elastos/Elastos.ELA/core"
-	"github.com/elastos/Elastos.ELA/events"
-	"github.com/elastos/Elastos.ELA/log"
-	"github.com/elastos/Elastos.ELA/protocol"
+	chain "github.com/wuyazero/Elastos.ELA/blockchain"
+	"github.com/wuyazero/Elastos.ELA/bloom"
+	. "github.com/wuyazero/Elastos.ELA/config"
+	. "github.com/wuyazero/Elastos.ELA/core"
+	"github.com/wuyazero/Elastos.ELA/events"
+	"github.com/wuyazero/Elastos.ELA/log"
+	"github.com/wuyazero/Elastos.ELA/protocol"
 
-	. "github.com/elastos/Elastos.ELA.Utility/common"
-	"github.com/elastos/Elastos.ELA.Utility/p2p"
-	"github.com/elastos/Elastos.ELA.Utility/p2p/msg"
+	. "github.com/wuyazero/Elastos.ELA.Utility/common"
+	"github.com/wuyazero/Elastos.ELA.Utility/p2p"
+	"github.com/wuyazero/Elastos.ELA.Utility/p2p/msg"
 )
 
 var LocalNode *node
